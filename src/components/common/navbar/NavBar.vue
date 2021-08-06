@@ -22,14 +22,9 @@ export default {
 <style scoped>
 .nav-bar {
   height: 44px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   line-height: 44px;
-  box-shadow: 0 1px 5px #ccc;
-
+  box-shadow: 0 3px 5px #ccc;
 }
 .left,
 .right {
