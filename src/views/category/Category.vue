@@ -1,128 +1,130 @@
 <template>
-  <div class="wrapper">
-    <ul class="content">
-      <li>分类列表1</li>
-      <li>分类列表2</li>
-      <li>分类列表3</li>
-      <li>分类列表4</li>
-      <li>分类列表5</li>
-      <li>分类列表6</li>
-      <li>分类列表7</li>
-      <li>分类列表8</li>
-      <li>分类列表9</li>
-      <li>分类列表10</li>
-      <li>分类列表11</li>
-      <li>分类列表12</li>
-      <li>分类列表13</li>
-      <li>分类列表14</li>
-      <li>分类列表15</li>
-      <li>分类列表16</li>
-      <li>分类列表17</li>
-      <li>分类列表18</li>
-      <li>分类列表19</li>
-      <li>分类列表20</li>
-      <li>分类列表21</li>
-      <li>分类列表22</li>
-      <li>分类列表23</li>
-      <li>分类列表24</li>
-      <li>分类列表25</li>
-      <li>分类列表26</li>
-      <li>分类列表27</li>
-      <li>分类列表28</li>
-      <li>分类列表29</li>
-      <li>分类列表30</li>
-      <li>分类列表31</li>
-      <li>分类列表32</li>
-      <li>分类列表33</li>
-      <li>分类列表34</li>
-      <li>分类列表35</li>
-      <li>分类列表36</li>
-      <li>分类列表37</li>
-      <li>分类列表38</li>
-      <li>分类列表39</li>
-      <li>分类列表40</li>
-      <li>分类列表41</li>
-      <li>分类列表42</li>
-      <li>分类列表43</li>
-      <li>分类列表44</li>
-      <li>分类列表45</li>
-      <li>分类列表46</li>
-      <li>分类列表47</li>
-      <li>分类列表48</li>
-      <li>分类列表49</li>
-      <li>分类列表50</li>
-      <li>分类列表51</li>
-      <li>分类列表52</li>
-      <li>分类列表53</li>
-      <li>分类列表54</li>
-      <li>分类列表55</li>
-      <li>分类列表56</li>
-      <li>分类列表57</li>
-      <li>分类列表58</li>
-      <li>分类列表59</li>
-      <li>分类列表60</li>
-      <li>分类列表61</li>
-      <li>分类列表62</li>
-      <li>分类列表63</li>
-      <li>分类列表64</li>
-      <li>分类列表65</li>
-      <li>分类列表66</li>
-      <li>分类列表67</li>
-      <li>分类列表68</li>
-      <li>分类列表69</li>
-      <li>分类列表70</li>
-      <li>分类列表71</li>
-      <li>分类列表72</li>
-      <li>分类列表73</li>
-      <li>分类列表74</li>
-      <li>分类列表75</li>
-      <li>分类列表76</li>
-      <li>分类列表77</li>
-      <li>分类列表78</li>
-      <li>分类列表79</li>
-      <li>分类列表80</li>
-      <li>分类列表81</li>
-      <li>分类列表82</li>
-      <li>分类列表83</li>
-      <li>分类列表84</li>
-      <li>分类列表85</li>
-      <li>分类列表86</li>
-      <li>分类列表87</li>
-      <li>分类列表88</li>
-      <li>分类列表89</li>
-      <li>分类列表90</li>
-      <li>分类列表91</li>
-      <li>分类列表92</li>
-      <li>分类列表93</li>
-      <li>分类列表94</li>
-      <li>分类列表95</li>
-      <li>分类列表96</li>
-      <li>分类列表97</li>
-      <li>分类列表98</li>
-      <li>分类列表99</li>
-      <li>分类列表100</li>
-    </ul>
+  <div>
+    <scroll class="content" >
+      <ul>
+        <li>zheshih1</li>
+        <li>zheshih2</li>
+        <li>zheshih3</li>
+        <li>zheshih4</li>
+        <li>zheshih5</li>
+        <li>zheshih6</li>
+        <li>zheshih7</li>
+        <li>zheshih8</li>
+        <li>zheshih9</li>
+        <li>zheshih10</li>
+        <li>zheshih11</li>
+        <li>zheshih12</li>
+        <li>zheshih13</li>
+        <li>zheshih14</li>
+        <li>zheshih15</li>
+        <li>zheshih16</li>
+        <li>zheshih17</li>
+        <li>zheshih18</li>
+        <li>zheshih19</li>
+        <li>zheshih20</li>
+        <li>zheshih21</li>
+        <li>zheshih22</li>
+        <li>zheshih23</li>
+        <li>zheshih24</li>
+        <li>zheshih25</li>
+        <li>zheshih26</li>
+        <li>zheshih27</li>
+        <li>zheshih28</li>
+        <li>zheshih29</li>
+        <li>zheshih30</li>
+        <li>zheshih31</li>
+        <li>zheshih32</li>
+        <li>zheshih33</li>
+        <li>zheshih34</li>
+        <li>zheshih35</li>
+        <li>zheshih36</li>
+        <li>zheshih37</li>
+        <li>zheshih38</li>
+        <li>zheshih39</li>
+        <li>zheshih40</li>
+        <li>zheshih41</li>
+        <li>zheshih42</li>
+        <li>zheshih43</li>
+        <li>zheshih44</li>
+        <li>zheshih45</li>
+        <li>zheshih46</li>
+        <li>zheshih47</li>
+        <li>zheshih48</li>
+        <li>zheshih49</li>
+        <li>zheshih50</li>
+        <li>zheshih51</li>
+        <li>zheshih52</li>
+        <li>zheshih53</li>
+        <li>zheshih54</li>
+        <li>zheshih55</li>
+        <li>zheshih56</li>
+        <li>zheshih57</li>
+        <li>zheshih58</li>
+        <li>zheshih59</li>
+        <li>zheshih60</li>
+        <li>zheshih61</li>
+        <li>zheshih62</li>
+        <li>zheshih63</li>
+        <li>zheshih64</li>
+        <li>zheshih65</li>
+        <li>zheshih66</li>
+        <li>zheshih67</li>
+        <li>zheshih68</li>
+        <li>zheshih69</li>
+        <li>zheshih70</li>
+        <li>zheshih71</li>
+        <li>zheshih72</li>
+        <li>zheshih73</li>
+        <li>zheshih74</li>
+        <li>zheshih75</li>
+        <li>zheshih76</li>
+        <li>zheshih77</li>
+        <li>zheshih78</li>
+        <li>zheshih79</li>
+        <li>zheshih80</li>
+        <li>zheshih81</li>
+        <li>zheshih82</li>
+        <li>zheshih83</li>
+        <li>zheshih84</li>
+        <li>zheshih85</li>
+        <li>zheshih86</li>
+        <li>zheshih87</li>
+        <li>zheshih88</li>
+        <li>zheshih89</li>
+        <li>zheshih90</li>
+        <li>zheshih91</li>
+        <li>zheshih92</li>
+        <li>zheshih93</li>
+        <li>zheshih94</li>
+        <li>zheshih95</li>
+        <li>zheshih96</li>
+        <li>zheshih97</li>
+        <li>zheshih98</li>
+        <li>zheshih99</li>
+        <li>zheshih100</li>
+      </ul>
+    </scroll>
   </div>
 </template>
 
 <script>
-import BScroll from 'better-scroll';
-
+import Scroll from '@/components/common/scroll/Scroll.vue';
 export default {
   name: 'Category',
-  data() {
-    return {};
+  components: {
+    Scroll
   },
-  mounted() {
-    new BScroll('.wrapper',{});
+  data() {
+    return {
+      // bs: null,
+    };
   },
 };
 </script>
 
-<style scoped> 
-.wrapper{
-  height: 200px;
-  background-color:pink;
-  
+<style scoped>
+.content {
+  height: 700px;
+  background-color: palegreen;
 }
 </style>

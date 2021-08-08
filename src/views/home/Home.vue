@@ -3,11 +3,21 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
-    <home-swiper :banners="banners"></home-swiper>
-    <home-recommend-view :recommends="recommends"></home-recommend-view>
-    <feature-view></feature-view>
-    <tab-control @tabClick="tabClick" :titles="['流行', '新款', '精选']"></tab-control>
-    <goods-list :goods="goods[currentType].list"></goods-list>
+    <scroll
+      ref="scroll"
+      :pullUpload="true"
+      :probeType="0"
+      @scroll="contentScroll"
+      @getMove="getMove"
+      class="content"
+    >
+      <home-swiper :banners="banners"></home-swiper>
+      <home-recommend-view :recommends="recommends"></home-recommend-view>
+      <feature-view></feature-view>
+      <tab-control @tabClick="tabClick" :titles="['流行', '新款', '精选']"></tab-control>
+      <goods-list :goods="goods[currentType].list"></goods-list>
+    </scroll>
+    <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
 
@@ -18,7 +28,9 @@ import HomeRecommendView from './childComps/HomeRecommendView.vue';
 import FeatureView from './childComps/FeatureView.vue';
 
 // 公共组件
+import Scroll from '@/components/common/scroll/Scroll.vue';
 import NavBar from '@/components/common/navbar/NavBar.vue';
+import BackTop from '@/components/content/backTop/BackTop.vue';
 import TabControl from '@/components/content/tabControl/TabControl.vue';
 import GoodsList from '@/components/content/goods/GoodsList.vue';
 
@@ -32,7 +44,9 @@ export default {
     HomeRecommendView,
     FeatureView,
 
+    Scroll,
     NavBar,
+    BackTop,
     TabControl,
     GoodsList,
   },
@@ -45,7 +59,10 @@ export default {
         new: { page: 0, list: [] },
         sell: { page: 0, list: [] },
       },
+      // 当前分类
       currentType: 'pop',
+      // 控制backTop显示隐藏
+      isShowBackTop: false,
     };
   },
   created() {
@@ -69,7 +86,19 @@ export default {
         i++;
       }
     },
-
+    // 点击回到顶部
+    backClick() {
+      this.$refs.scroll.backTop(0, 0, 200); //通过$refs.scroll获取到了组件对象，然后访问组件里面的内容
+      console.log('huiding');
+    },
+    // 显示隐藏回到顶部
+    contentScroll(position) {
+      if (position && position.y < -800) {
+        this.isShowBackTop = true;
+      } else {
+        this.isShowBackTop = false;
+      }
+    },
     /*
      *网络请求相关的方法
      */
@@ -80,6 +109,7 @@ export default {
         this.recommends = res.data.recommend.list;
       });
     },
+    // 请求商品数据
     getHomeGoods(type) {
       const page = this.goods[type].page + 1;
       getHomeGoods(type, page).then(res => {
@@ -89,6 +119,10 @@ export default {
         this.goods[type].page++;
       });
     },
+    // 上拉加载更多
+    getMove() {
+      this.getHomeGoods(this.currentType);
+    },
   },
 };
 </script>
@@ -97,6 +131,10 @@ export default {
 #home {
   padding-top: 44px;
   padding-bottom: 49px;
+  height: 100vh;
+}
+.content {
+  height: 100%;
 }
 .home-nav {
   background-color: var(--color-tint);
