@@ -24,6 +24,7 @@ export default {
       probeType: 0,
       click: true,
       observeDOM: true,
+      observeImage: true, //动态根据图片加载刷新refresh,解决了图片加载慢导致滑动长度不够
     });
     this.bs.on('pullingUp', () => {
       this.$emit('getMove');
