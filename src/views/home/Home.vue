@@ -3,10 +3,17 @@
     <nav-bar class="home-nav">
       <div slot="center">购物街</div>
     </nav-bar>
+    <tab-control
+      v-show="isTabFixed"
+      class="tab-control-top"
+      ref="tabControl1"
+      @tabClick="tabClick"
+      :titles="['流行', '新款', '精选']"
+    ></tab-control>
     <scroll
       ref="scroll"
       :pullUpload="true"
-      :probeType="0"
+      :probeType="2"
       @scroll="contentScroll"
       @getMove="getMove"
       class="content"
@@ -14,7 +21,11 @@
       <home-swiper :banners="banners"></home-swiper>
       <home-recommend-view :recommends="recommends"></home-recommend-view>
       <feature-view></feature-view>
-      <tab-control @tabClick="tabClick" :titles="['流行', '新款', '精选']"></tab-control>
+      <tab-control
+        @tabClick="tabClick"
+        ref="tabControl2"
+        :titles="['流行', '新款', '精选']"
+      ></tab-control>
       <goods-list :goods="goods[currentType].list"></goods-list>
     </scroll>
     <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
@@ -63,6 +74,8 @@ export default {
       currentType: 'pop',
       // 控制backTop显示隐藏
       isShowBackTop: false,
+      // 控制tabControl吸顶
+      isTabFixed: false,
     };
   },
   created() {
@@ -72,6 +85,7 @@ export default {
     this.getHomeGoods('new');
     this.getHomeGoods('sell');
   },
+  mounted() {},
   methods: {
     /*
      *事件监听相关的方法
@@ -85,11 +99,12 @@ export default {
         }
         i++;
       }
+      this.$refs.tabControl1.currentIndex = index;
+      this.$refs.tabControl2.currentIndex = index;
     },
     // 点击回到顶部
     backClick() {
       this.$refs.scroll.backTop(0, 0, 200); //通过$refs.scroll获取到了组件对象，然后访问组件里面的内容
-      console.log('huiding');
     },
     // 显示隐藏回到顶部
     contentScroll(position) {
@@ -97,6 +112,13 @@ export default {
         this.isShowBackTop = true;
       } else {
         this.isShowBackTop = false;
+      }
+
+      // 吸顶显示隐藏
+      if (this.$refs.tabControl2.$el.offsetTop <= -position.y) {
+        this.isTabFixed = true;
+      } else {
+        this.isTabFixed = false;
       }
     },
     /*
@@ -146,8 +168,9 @@ export default {
   top: 0;
   z-index: 9;
 }
-.tab-control {
-  position: sticky;
+.tab-control-top {
+  position: absolute;
   top: 44px;
+  z-index: 9;
 }
 </style>
