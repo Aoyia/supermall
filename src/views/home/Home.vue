@@ -76,6 +76,8 @@ export default {
       isShowBackTop: false,
       // 控制tabControl吸顶
       isTabFixed: false,
+      //保存当前y轴位置
+      saveY: 0,
     };
   },
   created() {
@@ -86,6 +88,17 @@ export default {
     this.getHomeGoods('sell');
   },
   mounted() {},
+  // 进来时活跃
+  activated() {
+    this.$refs.scroll.backTop(0, this.saveY, 0);
+    console.log('activated');
+  },
+  // 离开后不活跃
+  deactivated() {
+    //组件设置了 keep-alive所以变量不会销毁
+    this.saveY = this.$refs.scroll.bs.y;
+    console.log('deactivated', this.$refs.scroll.bs.y);
+  },
   methods: {
     /*
      *事件监听相关的方法
