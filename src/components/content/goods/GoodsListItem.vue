@@ -1,8 +1,6 @@
 <template>
-  <div class="goods-item">
-    <a href="">
-      <img :src="goodsItem.show.img" alt="" />
-    </a>
+  <div class="goods-item" @click="itemClick">
+    <img :src="goodsItemImg" alt="" />
     <div class="goods-info">
       <p>{{ goodsItem.title }}</p>
       <span class="price">{{ goodsItem.price }}￥</span>
@@ -20,6 +18,21 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  computed:{
+    goodsItemImg(){
+      return this.goodsItem.image || this.goodsItem.show.img
+    }
+  },
+  methods: {
+    itemClick() {
+      this.$router.push({
+        path: 'detail',
+        query: {
+          iid: this.goodsItem.iid,
+        },
+      });
     },
   },
 };
@@ -50,7 +63,7 @@ export default {
   -webkit-line-clamp: 2;
 }
 .goods-info > .price {
-  padding:0 4px ;
+  padding: 0 4px;
   color: var(--color-tint);
 }
 .goods-info > .collect::before {

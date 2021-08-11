@@ -1,6 +1,9 @@
 <template>
-  <div class="goods">
-    <goods-list-item v-for="item in goods" :key="item.acm" :goodsItem="item"></goods-list-item>
+  <div>
+    <div class="recommended">推荐</div>
+    <div class="goods">
+      <goods-list-item v-for="item in goods" :key="item.acm" :goodsItem="item"></goods-list-item>
+    </div>
   </div>
 </template>
 
@@ -23,6 +26,11 @@ export default {
 </script>
 
 <style>
+.recommended{
+  border-top: 1px solid #ccc;
+  padding: 12px;
+
+}
 .goods {
   display: flex;
   justify-content: space-evenly;

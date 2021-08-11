@@ -90,14 +90,13 @@ export default {
   mounted() {},
   // 进来时活跃
   activated() {
-    this.$refs.scroll.backTop(0, this.saveY, 0);
-    console.log('activated');
+    this.$refs.scroll.bs.refresh();
+    this.$refs.scroll.scrollTo(0, this.saveY, 0);
   },
-  // 离开后不活跃
+  // 离开后不活跃`
   deactivated() {
-    //组件设置了 keep-alive所以变量不会销毁
     this.saveY = this.$refs.scroll.bs.y;
-    console.log('deactivated', this.$refs.scroll.bs.y);
+    //组件设置了 keep-alive所以变量不会销毁
   },
   methods: {
     /*
@@ -117,7 +116,7 @@ export default {
     },
     // 点击回到顶部
     backClick() {
-      this.$refs.scroll.backTop(0, 0, 200); //通过$refs.scroll获取到了组件对象，然后访问组件里面的内容
+      this.$refs.scroll.scrollTo(0, 0, 200); //通过$refs.scroll获取到了组件对象，然后访问组件里面的内容
     },
     // 显示隐藏回到顶部
     contentScroll(position) {

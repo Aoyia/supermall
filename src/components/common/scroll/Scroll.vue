@@ -46,7 +46,7 @@ export default {
     }
   },
   methods: {
-    backTop(x, y, time = 200) {
+    scrollTo(x, y, time = 200) {
       this.bs.scrollTo(x, y, time);
     },
   },
