@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import actions from './actions.js';
 import mutations from './mutations.js';
+import getters from './getters.js';
 // 安装插件
 Vue.use(Vuex);
 
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
   state,
   mutations,
   actions,
+  getters,
 });
 
 // 挂在vue实例上

@@ -170,9 +170,6 @@ export default {
 #detail {
   height: 100vh;
 }
-.content {
-  height: calc(100% - 44px - 49px);
-}
 .detail-swiper {
   height: 300px;
 }
