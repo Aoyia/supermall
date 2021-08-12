@@ -3,3 +3,4 @@ export default {
   ADD_COUNTER: 'add_counter',
   ADD_TO_CART : 'add_to_cart'
 };
+ 
