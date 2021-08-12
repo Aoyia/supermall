@@ -14,6 +14,7 @@
       <detail-comment-info ref="comment" :commentInfo="commentInfo"></detail-comment-info>
       <goods-list ref="list" :goods="recommendInfo"></goods-list>
     </scroll>
+    <detail-bottom-bar @addToCart="addToCart"></detail-bottom-bar>
     <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
   </div>
 </template>
@@ -27,12 +28,13 @@ import DetailShopInfo from './childComps/DetailShopInfo.vue';
 import DetailGoodsInfo from './childComps/DetailGoodsInfo.vue';
 import DetailParamInfo from './childComps/DetailParamInfo.vue';
 import DetailCommentInfo from './childComps/DetailCommentInfo.vue';
+import DetailBottomBar from './childComps/DetailBottomBar.vue';
 
 import Scroll from '@/components/common/scroll/Scroll.vue';
 import GoodsList from '@/components/content/goods/GoodsList.vue';
-import BackTop from '@/components/content/backTop/BackTop.vue';
 
 import { getDetail, getRecommend, Goods, Shop, GoodsParam } from '@/network/detail';
+import { backTopMixin } from '@/common/mixin.js';
 
 export default {
   name: 'Detail',
@@ -45,10 +47,12 @@ export default {
     DetailGoodsInfo,
     DetailParamInfo,
     DetailCommentInfo,
+    DetailBottomBar,
+
     Scroll,
     GoodsList,
-    BackTop,
   },
+  mixins: [backTopMixin],
   data() {
     return {
       iid: null,
@@ -62,7 +66,6 @@ export default {
       recommendInfo: [],
       theme: ['swiper', 'param', 'comment', 'list'],
       themeY: [],
-      isShowBackTop: false,
     };
   },
   created() {
@@ -140,15 +143,24 @@ export default {
       /*
        *控制显示隐藏回到顶部
        */
-      if (position && position.y < -800) {
-        this.isShowBackTop = true;
-      } else {
-        this.isShowBackTop = false;
-      }
+      this.listenShowBackTop(position);
     },
     // 点击回到顶部
     backClick() {
       this.$refs.scroll.scrollTo(0, 0, 200); //通过$refs.scroll获取到了组件对象，然后访问组件里面的内容
+    },
+    // 点击添加到购物车
+    addToCart() {
+      const product = {};
+      product.image = this.detailSwiperData[0];
+      product.title = this.goods.title;
+      product.desc = this.goods.desc;
+      product.price = this.goods.realPrice;
+      product.iid = this.iid;
+      console.log(product);
+      // 将商品添加到购物车里
+      this.$store.dispatch('addCart', product);
+      console.log(this.$store.state.cartList);
     },
   },
 };
